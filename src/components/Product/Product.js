@@ -2,6 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faUser } from '@fortawesome/free-solid-svg-icons';
 import './Product.css';
+import Rating from 'react-rating';
 
 const Product = (props) => {
   const { name, price, img, stock, seller, features, starCount, star } =
@@ -26,14 +27,19 @@ const Product = (props) => {
               onClick={() => props.handleAddToCart(props.product)}
               className="btn-product"
             >
-              <FontAwesomeIcon icon={faShoppingCart} />
-              Add to Cart
+              <FontAwesomeIcon icon={faShoppingCart} /> Add to Cart
             </button>
           </div>
           <div className="product-info-right">
             <div>
-              <strong>{star}</strong>(<FontAwesomeIcon icon={faUser} />{' '}
-              {starCount})
+              <Rating
+                readonly
+                initialRating={star}
+                emptySymbol="far fa-star product-rating"
+                fullSymbol="fas fa-star product-rating"
+              />
+              (
+              <FontAwesomeIcon icon={faUser} /> {starCount})
             </div>
             <h4>Features</h4>
             <ul className="product-features-list">
