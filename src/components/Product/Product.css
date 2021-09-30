@@ -1,7 +1,8 @@
 .product {
   display: flex;
   border-bottom: 1px solid lightgray;
-  margin: 5px;
+  margin: 0px;
+  padding: 0 0 10px 0;
 }
 
 .product-img img {
