@@ -1,0 +1,12 @@
+.login-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input {
+  padding: 5px 20px;
+  margin: 10px 0;
+  border: 1px solid goldenrod;
+  border-radius: 5px;
+}
