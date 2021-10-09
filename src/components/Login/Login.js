@@ -1,8 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import useAuth from '../../hooks/useAuth';
+// import useFirebase from '../../hooks/useFirebase';
 import './Login.css';
 
 const Login = () => {
+  const { signInUsingGoogle } = useAuth();
+  const location = useLocation();
   return (
     <div className="login-form">
       <div>
@@ -17,7 +21,9 @@ const Login = () => {
         <p>
           New to Ema John? <Link to="/register">Create Account</Link>
         </p>
-        <button className="btn-product">Google Sign</button>
+        <button className="btn-product" onClick={signInUsingGoogle}>
+          Google Sign
+        </button>
       </div>
     </div>
   );
