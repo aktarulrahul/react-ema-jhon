@@ -18,7 +18,7 @@ const Login = () => {
     <div className="login-form">
       <div>
         <h2>Login</h2>
-        <form onSubmit="">
+        <form>
           <input type="email" placeholder="Enter your email" />
           <br />
           <input type="password" placeholder="Password" />
