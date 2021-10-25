@@ -20,3 +20,24 @@
   font-size: 16px;
   margin: 10px 0;
 }
+.pagination {
+  margin: 30px 20%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.pagination button {
+  padding: 5 15px;
+}
+.pagination button:hover {
+  cursor: pointer;
+}
+
+.pagination .selected {
+  padding: 6px 16px;
+  background-color: orange;
+  color: white;
+  border-radius: 2px;
+  border: 1px solid orange;
+}

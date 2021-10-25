@@ -8,15 +8,21 @@ import './Shop.css';
 const Shop = () => {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
+  const [pageCount, setPageCount] = useState(0);
+  const [page, setPage] = useState(0);
   const [searchProducts, setSearchProducts] = useState([]);
+  const size = 10;
   useEffect(() => {
-    fetch('./products.json')
+    fetch(`http://localhost:5000/products?page=${page}&&size=${size}`)
       .then((res) => res.json())
       .then((data) => {
-        setProducts(data);
-        setSearchProducts(data);
+        setProducts(data.products);
+        setSearchProducts(data.products);
+        const count = data.count;
+        const pageNumber = Math.ceil(count / size);
+        setPageCount(pageNumber);
       });
-  }, []);
+  }, [page]);
 
   useEffect(() => {
     if (products.length) {
@@ -78,6 +84,17 @@ const Shop = () => {
               handleAddToCart={handleAddToCart}
             />
           ))}
+          <div className="pagination">
+            {[...Array(pageCount).keys()].map((number) => (
+              <button
+                className={number === page ? 'selected' : ''}
+                key={number}
+                onClick={() => setPage(number)}
+              >
+                {number + 1}
+              </button>
+            ))}
+          </div>
         </div>
         <div className="cart-container">
           <Cart cart={cart}>
