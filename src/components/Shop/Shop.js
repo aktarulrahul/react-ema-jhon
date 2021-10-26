@@ -4,10 +4,11 @@ import { addToDb, getStoredCart } from '../../utilities/fakedb';
 import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
 import './Shop.css';
+import useCart from '../../hooks/useCart';
 
 const Shop = () => {
   const [products, setProducts] = useState([]);
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useCart();
   const [pageCount, setPageCount] = useState(0);
   const [page, setPage] = useState(0);
   const [searchProducts, setSearchProducts] = useState([]);
