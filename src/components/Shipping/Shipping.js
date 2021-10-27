@@ -17,7 +17,7 @@ const Shipping = () => {
   const onSubmit = (data) => {
     const savedCart = getStoredCart();
     data.order = savedCart;
-    fetch('http://localhost:5000/orders', {
+    fetch('https://aktarulrahul-ema-jhon.herokuapp.com/orders', {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
