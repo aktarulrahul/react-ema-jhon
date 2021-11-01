@@ -6,7 +6,8 @@
   background-color: black;
   line-height: 40px;
 }
-.header nav a {
+.header nav a,
+#user {
   text-decoration: none;
   color: white;
   margin-right: 20px;
