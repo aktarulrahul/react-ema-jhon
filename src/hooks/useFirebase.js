@@ -6,12 +6,14 @@ import {
   GoogleAuthProvider,
   onAuthStateChanged,
   signOut,
+  getIdToken,
 } from 'firebase/auth';
 
 initializeAuthentication();
 
 const useFirebase = () => {
   const [user, setUser] = useState({});
+  const [loading, setLoading] = useState(true);
   const auth = getAuth();
   const googleProvider = new GoogleAuthProvider();
 
@@ -19,8 +21,14 @@ const useFirebase = () => {
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
+        getIdToken(user).then((idToken) =>
+          localStorage.setItem('idToken', idToken)
+        );
         setUser(user);
+      } else {
+        setUser({});
       }
+      setLoading(false);
     });
   }, []);
 
